@@ -358,7 +358,7 @@ class Board(pygame.sprite.Sprite):
     if self.listOfPlaced[len(self.listOfPlaced)-1][0] == 3: 
       return 2
     #1 line cleared
-    return 10
+    return 0
   def sendLines(self, data, lines):
     #called when placed. This function first sets its variables to our board
     #and the other board. We make a copy of the other board, so that we can
@@ -505,6 +505,7 @@ class Piece(pygame.sprite.Sprite):
     if len(data.marathon.pieces) == 0:
       data.marathon.pieces = generatePieces(data)
   def updateGamePiecesList(self, data):
+    #removes the first item of the list, since we used it
     if self.state == 'left':  
       data.gamePieces.pop(0)
     elif self.state == 'right': 
