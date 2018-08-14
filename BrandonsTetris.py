@@ -655,10 +655,12 @@ class Text(object):
   def drawMarathonStart(self,data):
     timeRemaining = int((data.marathon.startScreenCount//1)+1)
     if timeRemaining > 0:
+      # draw countdown for single player
       self.drawBeginningAnimationText(canvas, str(timeRemaining), width/2, 
                                       height/2 - 130, 130, 149, (255, 207, 0),
                                       (225, 137, 0))
     if timeRemaining == 0:
+      # draw go for single player
       self.drawBeginningAnimationText(canvas, "GO!", width/2, 
                                       height/2 - 130, 90, 93, (106, 246, 1),
                                       (16, 153, 5))
