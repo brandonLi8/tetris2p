@@ -505,7 +505,6 @@ class Piece(pygame.sprite.Sprite):
     if len(data.marathon.pieces) == 0:
       data.marathon.pieces = generatePieces(data)
   def updateGamePiecesList(self, data):
-    #removes the first item of the list, since we used it
     if self.state == 'left':  
       data.gamePieces.pop(0)
     elif self.state == 'right': 
