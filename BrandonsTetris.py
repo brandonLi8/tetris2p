@@ -670,12 +670,14 @@ class Text(object):
     timeRemaining = int(3-(data.timeElapsedInMultiplayer //1))
     if timeRemaining > 0:
       for i in range(2):
+        # draws the countdown
         self.drawBeginningAnimationText(canvas, str(timeRemaining), margin +
                                         (1 + (i*2))*gridWidth/2 
                                         + i*widthBetweenBoards, height/2 - 130, 
                                         130, 149, (255, 207, 0), (225, 137, 0))
     if timeRemaining == 0:
       for i in range(2):
+        # draws the go
         self.drawBeginningAnimationText(canvas, "GO!", margin + 
                                         (1 + (i*2))*gridWidth/2 
                                         + i*widthBetweenBoards + 10, 
