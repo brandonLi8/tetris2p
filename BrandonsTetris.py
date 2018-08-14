@@ -338,6 +338,7 @@ class Board(pygame.sprite.Sprite):
     result =[]
     for i in range(len(self.board)):    
       if self.isColoredRow(self.board[i], data):
+        #if we have found a full row
         rowsWithBlocksInside  = copy.deepcopy(self.board[i])
         result.append(rowsWithBlocksInside)    
     self.board = [([self.emptyColor[0]]*data.cols) for row in range(data.rows)] 
