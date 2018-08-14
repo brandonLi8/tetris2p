@@ -358,7 +358,7 @@ class Board(pygame.sprite.Sprite):
     if self.listOfPlaced[len(self.listOfPlaced)-1][0] == 3: 
       return 2
     #1 line cleared
-    return 0
+    return 10
   def sendLines(self, data, lines):
     #called when placed. This function first sets its variables to our board
     #and the other board. We make a copy of the other board, so that we can
