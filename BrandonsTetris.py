@@ -1,3 +1,4 @@
+
 import pygame, random, sys, copy, math
 #Tetris by Brandon Li
 ###########################################
@@ -184,7 +185,7 @@ def createNext(data):
   return nextSurface
 #create text  
 def createGameOverSurfaces(data, text, text2):
-  myfont = pygame.font.Font('KOMIKAX_.woff', 47)
+  myfont = pygame.font.Font('KOMIKAX_.ttf', 47)
   textSurface = myfont.render(text, True, (250, 230, 78))
   text2Surface = myfont.render(text2, True, (105, 186, 239))
   textSurface2 = myfont.render(text, True, (231, 164, 25))
@@ -207,14 +208,14 @@ def createPausedSurface(data):
 def createText(msg, color1, color2, size):
   #this returns two surfaces for the 3-D effect
   pygame.font.init()
-  myfont = pygame.font.Font('KOMIKAX_.woff', size)
+  myfont = pygame.font.Font('KOMIKAX_.ttf', size)
   text = myfont.render(msg, True, color1)
   text2 = myfont.render(msg, True, color2)  
   return (text, text2)
 def createText2(msg, color1, color2, size, backround):
   #this returns two surfaces for the 3-D effect
   pygame.font.init()
-  myfont = pygame.font.Font('KOMIKAX_.woff', size)
+  myfont = pygame.font.Font('KOMIKAX_.ttf', size)
   text = myfont.render(msg, True, color1, backround)
   text2 = myfont.render(msg, True, color2, backround)  
   return (text, text2)
@@ -338,7 +339,6 @@ class Board(pygame.sprite.Sprite):
     result =[]
     for i in range(len(self.board)):    
       if self.isColoredRow(self.board[i], data):
-        #if we have found a full row
         rowsWithBlocksInside  = copy.deepcopy(self.board[i])
         result.append(rowsWithBlocksInside)    
     self.board = [([self.emptyColor[0]]*data.cols) for row in range(data.rows)] 
@@ -655,12 +655,10 @@ class Text(object):
   def drawMarathonStart(self,data):
     timeRemaining = int((data.marathon.startScreenCount//1)+1)
     if timeRemaining > 0:
-      # draw countdown for single player
       self.drawBeginningAnimationText(canvas, str(timeRemaining), width/2, 
                                       height/2 - 130, 130, 149, (255, 207, 0),
                                       (225, 137, 0))
     if timeRemaining == 0:
-      # draw go for single player
       self.drawBeginningAnimationText(canvas, "GO!", width/2, 
                                       height/2 - 130, 90, 93, (106, 246, 1),
                                       (16, 153, 5))
@@ -671,14 +669,12 @@ class Text(object):
     timeRemaining = int(3-(data.timeElapsedInMultiplayer //1))
     if timeRemaining > 0:
       for i in range(2):
-        # draws the countdown
         self.drawBeginningAnimationText(canvas, str(timeRemaining), margin +
                                         (1 + (i*2))*gridWidth/2 
                                         + i*widthBetweenBoards, height/2 - 130, 
                                         130, 149, (255, 207, 0), (225, 137, 0))
     if timeRemaining == 0:
       for i in range(2):
-        # draws the go
         self.drawBeginningAnimationText(canvas, "GO!", margin + 
                                         (1 + (i*2))*gridWidth/2 
                                         + i*widthBetweenBoards + 10, 
@@ -688,9 +684,9 @@ class Text(object):
       data.startScreenDone = True 
   def drawBeginningAnimationText(self, surface, text, x, y, 
                                  fontSize1, fontSize2, color1, color2): 
-    myfont = pygame.font.Font('Comic-Panels.woff', 
+    myfont = pygame.font.Font('Comic-Panels.ttf', 
                               fontSize1)
-    myfont2 = pygame.font.Font('Comic-Panels.woff', 
+    myfont2 = pygame.font.Font('Comic-Panels.ttf', 
                                fontSize2)
     textsurface = myfont.render(text, True, color1)
     textsurface2 = myfont2.render(text, True, color2)
@@ -782,7 +778,7 @@ class Text(object):
       text = "0:00"
     else:
       text = intToTime(self.timeTillOver//1 + 1)
-    myfont = pygame.font.Font('KOMIKAX_.woff', 50)
+    myfont = pygame.font.Font('KOMIKAX_.ttf', 50)
     surface = myfont.render(text, True, (255,255,255), (4,7,12))  
     canvas.blit(surface, (width/2-60, 0))
   def drawSentLines(self, data):
@@ -1412,11 +1408,7 @@ def homeMousePressed(data, event):
       data.marathon.initMarathon(data)
     data.marathon.drewBackround = False 
 def homeRedrawAll( data):
-  if data.drewHome == False:
-    canvas.blit(data.startSurface, data.startSurface.get_rect())
-    data.drewHome = True
-    pygame.display.update()
-  else:
+    canvas.blit(data.startSurface,                  data.startSurface.get_rect())
     data.NewBattlebutton.draw(pygame.mouse.get_pos())
     data.resumeBattlebutton.draw(pygame.mouse.get_pos())
     data.helpButton.draw(pygame.mouse.get_pos())
@@ -1710,7 +1702,6 @@ def run(width=300, height=300):
   data.maxFPS = 64
   while True: #game loop
     timerFired(data)
-    # print(data.clock.get_fps())
     for event in pygame.event.get():
       if event.type == pygame.QUIT: 
         Quit()         
