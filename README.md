@@ -19,7 +19,7 @@ By Brandon Li
 
 1. download everything into a file
 2. open BrandonsTetris.py and save it into the folder 
-3. run BrandonsTEtris.py
+3. run BrandonsTetris.py
 
 ## credits
 - inspiration from : https://www.tetrisfriends.com/
