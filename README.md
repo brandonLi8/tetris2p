@@ -1,6 +1,9 @@
 Tetris 2p
 =======
 By Brandon Li
+## screenshots 
+![screen shot 2018-09-01 at 10 04 29 am](https://user-images.githubusercontent.com/42391580/44947745-27a8a780-adcf-11e8-9cad-6136005d5427.png)
+![screen shot 2018-09-01 at 10 05 38 am](https://user-images.githubusercontent.com/42391580/44947757-4c048400-adcf-11e8-9353-73c3f1576c3d.png)
 ## features
 - 2 different modes: Tetris 2p, Tetris Marathon mode
 - different colors for each block
